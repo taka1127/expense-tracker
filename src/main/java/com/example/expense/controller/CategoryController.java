@@ -39,7 +39,7 @@ public class CategoryController {
 	}
 	
 	//category/2
-	@GetMapping("category/{id}")
+	@GetMapping("/category/{id}")
 	ResponseEntity<?> getCategory(@PathVariable Long id){
 		Optional<Category> category = categoryRepository.findById(id);
 		return category.map(response -> ResponseEntity.ok().body(response))
