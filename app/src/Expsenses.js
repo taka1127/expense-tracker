@@ -118,7 +118,13 @@ class Expsenses extends Component {
         this.setState({Expsenses : bodyExp , isLoading :false});
         console.log(bodyExp);
 
-    }
+  }
+  
+  async componentDidMount(){
+    const response=await fetch('/api/categories');
+    const body = await response.json();
+    this.setState({Expsenses : body , isLoading: false});
+}
 
 
 
@@ -127,7 +133,8 @@ class Expsenses extends Component {
   render() {
     const title = <h3>Add Expense</h3>;
     const { Categories } = this.state;
-    const { Expsenses, isLoading } = this.state;
+    const { Expsenses } = this.state;
+    const { isLoading } = this.state;
         
 
     if (isLoading)
@@ -142,19 +149,20 @@ class Expsenses extends Component {
         </option>
       )
         
-    // let rows =
-    // Expsenses.map((expense) =>
-    //     <tr key={expense.id}>
-    //       <td>{expense.description}</td>
-    //       <td>{expense.location}</td>
-    //       <td><Moment date={expense.expensedate} format="YYYY/MM/DD" /></td>
-    //       <td>{expense.category.name}</td>
-    //       <td><Button size="sm" color="danger" onClick={() => this.remove(expense.id)}>Delete</Button></td>
+    let rows =
+    Expsenses.map((expense) =>
+        <tr key={expense.id}>
+          <td>{expense.description}</td>
+          <td>{expense.location}</td>
+          <td><Moment date={expense.expensedate} format="YYYY/MM/DD" /></td>
+          {/* <td>{expense.category.name}</td> */}
+          <td><Moment date={expense.expensedate} format="YYYY/MM/DD" /></td>
+          <td><Button size="sm" color="danger" onClick={() => this.remove(expense.id)}>Delete</Button></td>
 
-    //     </tr>
+        </tr>
 
 
-    //   )
+      )
         
 
     return (
@@ -176,6 +184,8 @@ class Expsenses extends Component {
               <select onChange={this.handleChange}>
                 {optionList}
               </select>
+              <Input type="description" name="description" id="description"
+                onChange={this.handleChange} autoComplete="name" />
                     
             </FormGroup>
 
@@ -213,7 +223,7 @@ class Expsenses extends Component {
               </tr>
             </thead>
             <tbody>
-              {/* {rows} */}
+              {rows}
             </tbody>
 
           </Table>
