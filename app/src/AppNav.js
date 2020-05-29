@@ -7,17 +7,17 @@ class AppNav extends Component {
     return (
       <div>
         <Navbar color="dark" dark  expand="md">
-          <NavbarBrand href="/">Expense Tracker Application</NavbarBrand>
+          <NavbarBrand href="/">かんたん経費アプリ</NavbarBrand>
           
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <NavLink href="/">ホーム</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/categories">Categories</NavLink>
+                <NavLink href="/categories">カテゴリー</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/expenses">Expenses</NavLink>
+                <NavLink href="/expenses">経費</NavLink>
               </NavItem>
             </Nav>
             

@@ -5,8 +5,12 @@ class Home extends Component {
   state = {  }
   render() { 
     return (
-      
-            <AppNav />
+      <div>
+        <AppNav />
+        <h2 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          かんたん経費アプリへようこそ !
+        </h2>
+      </div>
       );
   }
 }

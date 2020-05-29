@@ -16,3 +16,15 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+//     AppNav
+//       |
+//       V
+// Home.js Category.js Expenses.js
+//       |
+//       V
+//     App.js
+//       |
+//       V
+//     index.js
