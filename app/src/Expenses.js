@@ -5,7 +5,6 @@ import './App.css';
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Input, Label, Form, FormGroup, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Category from './Category';
 
 class Expenses extends Component {
   state = { 
@@ -18,7 +17,7 @@ class Expenses extends Component {
   async componentDidMount() {
     const response = await fetch('/api/categories');
     const body = await response.json();
-    this.setState({ expenses: body, isLoading: false });
+    this.setState({ Categories: body, isLoading: false });
   }
 
   
@@ -30,7 +29,7 @@ class Expenses extends Component {
     if (isLoading)
       return (<div>Loading...</div>)
     
-    let optionList =  Categories.map(category => <div id={category.id}>{category.name}</div>) 
+    let optionList =  Categories.map(category => <option id={category.id}>{category.name}</option>) 
     
     
     return (
@@ -41,7 +40,7 @@ class Expenses extends Component {
           <Form onSubmit={this.handleSubmit}>
           <FormGroup className="d-flex flex-column">
             <label for="title">タイトル</label>
-            <input type="text" name="title" id="title" onChange={this.handleChange} autoComplete="name" />
+            <input type="text" name="title" id="title" onChange={this.handleChange} autoComplete="name" ></input>
           </FormGroup>
 
 
@@ -53,7 +52,7 @@ class Expenses extends Component {
              
               
 
-              <input type="text" name="category" id="category" onChange={this.handleChange} />
+              <input type="text" name="category" id="category" onChange={this.handleChange} ></input>
           </FormGroup>
 
 
@@ -64,7 +63,7 @@ class Expenses extends Component {
 
             <FormGroup className="col-md-4 mb-3 p-0 d-flex flex-column">
               <label for="location">場所</label>
-              <input type="text" name="location" id="location" onChange={this.handleChange} />
+              <input type="text" name="location" id="location" onChange={this.handleChange} ></input>
             </FormGroup>
 
           <FormGroup>
